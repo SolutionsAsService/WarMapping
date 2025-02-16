@@ -54,6 +54,50 @@
       "westernMilitarySupport": ["Russia"],
       "easternPoliticalSupport": ["Chad"],
       "westernPoliticalSupport": ["China"]
+    },
+    {
+      "id": 5,
+      "name": "Gaza Conflict",
+      "description": "A recent escalation between Israel and Hamas in the Gaza Strip.",
+      "easternCombatants": ["Hamas"],
+      "westernCombatants": ["Israel"],
+      "easternMilitarySupport": ["Iran"],
+      "westernMilitarySupport": ["United States"],
+      "easternPoliticalSupport": ["Qatar"],
+      "westernPoliticalSupport": ["European Union"]
+    },
+    {
+      "id": 6,
+      "name": "Sudanese Civil War",
+      "description": "An internal conflict between rival factions within Sudan.",
+      "easternCombatants": ["Rapid Support Forces (RSF)"],
+      "westernCombatants": ["Sudanese Armed Forces (SAF)"],
+      "easternMilitarySupport": ["Russia"],
+      "westernMilitarySupport": ["Egypt"],
+      "easternPoliticalSupport": ["United Arab Emirates"],
+      "westernPoliticalSupport": ["African Union", "United Nations"]
+    },
+    {
+      "id": 7,
+      "name": "Myanmar Internal Conflict",
+      "description": "Ongoing clashes between the military junta and various ethnic armed organizations.",
+      "easternCombatants": ["Military Junta"],
+      "westernCombatants": ["Ethnic Armed Organizations"],
+      "easternMilitarySupport": ["China", "Russia"],
+      "westernMilitarySupport": ["None"],
+      "easternPoliticalSupport": ["Thailand"],
+      "westernPoliticalSupport": ["United States", "European Union"]
+    },
+    {
+      "id": 8,
+      "name": "Ethiopian Tigray Conflict",
+      "description": "A conflict between the Ethiopian federal government and the Tigray People's Liberation Front (TPLF).",
+      "easternCombatants": ["Ethiopian Federal Government"],
+      "westernCombatants": ["Tigray People's Liberation Front (TPLF)"],
+      "easternMilitarySupport": ["Eritrea"],
+      "westernMilitarySupport": ["None"],
+      "easternPoliticalSupport": ["China"],
+      "westernPoliticalSupport": ["United States", "European Union"]
     }
   ]
 }
