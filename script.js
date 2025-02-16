@@ -25,7 +25,7 @@ function getCountryColor(country, warData) {
 // Function to highlight countries based on war details
 function highlightCountries(warData) {
   if (geojsonLayer) {
-    map.removeLayer(geojsonLayer);
+    map.removeLayer(geojsonLayer); // Remove previous geojson layer
   }
 
   fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
