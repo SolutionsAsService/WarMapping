@@ -1,96 +1,88 @@
-// Mapping primary fighting country (side name) to colors
-const sideColors = {
-  "Ukraine": "#1E90FF", // DodgerBlue
-  "Russia": "#FF4500", // OrangeRed
-  "Syrian Government": "#228B22", // ForestGreen
-  "Rebel Groups": "#FFA500", // Orange
-  "Hadi Government": "#4169E1", // RoyalBlue
-  "Houthi Rebels": "#B22222", // FireBrick
-  "Government of National Unity (GNU)": "#800080", // Purple
-  "Libyan National Army (LNA)": "#8B4513" // SaddleBrown
-};
+let map;
+let geojsonLayer;
 
+// Initialize Leaflet map
+function initMap() {
+  map = L.map('map').setView([20, 0], 2); // Centered globally
+
+  // OpenStreetMap Tile Layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+}
+
+// Function to determine color based on alignment and role
+function getCountryColor(country, warData) {
+  if (warData.easternCombatants.includes(country)) return "#ff4d4d"; // Red (Eastern Combatant)
+  if (warData.westernCombatants.includes(country)) return "#4d79ff"; // Dark Blue (Western Combatant)
+  if (warData.easternMilitarySupport.includes(country)) return "#ff9f40"; // Orange (Eastern Military Support)
+  if (warData.westernMilitarySupport.includes(country)) return "#5aa8ff"; // Medium Blue (Western Military Support)
+  if (warData.easternPoliticalSupport.includes(country)) return "#ffd580"; // Yellow (Eastern Political Support)
+  if (warData.westernPoliticalSupport.includes(country)) return "#a3d5ff"; // Light Blue (Western Political Support)
+  return "#00000000"; // No involvement (Transparent)
+}
+
+// Function to highlight countries based on war details
+function highlightCountries(warData) {
+  if (geojsonLayer) {
+    map.removeLayer(geojsonLayer);
+  }
+
+  fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
+    .then(response => response.json())
+    .then(worldGeoJson => {
+      geojsonLayer = L.geoJSON(worldGeoJson, {
+        style: feature => ({
+          fillColor: getCountryColor(feature.properties.name, warData),
+          color: "#444",
+          weight: getCountryColor(feature.properties.name, warData) !== "#00000000" ? 1.5 : 0.5,
+          fillOpacity: getCountryColor(feature.properties.name, warData) !== "#00000000" ? 0.6 : 0
+        })
+      }).addTo(map);
+    })
+    .catch(error => console.error('Error loading country borders:', error));
+}
+
+// Fetch wars data and populate dropdown
 document.addEventListener("DOMContentLoaded", () => {
-  // Fetch the wars data from the JSON file
   fetch('wars.json')
     .then(response => response.json())
     .then(data => {
-      const wars = data.wars;
       const warSelector = document.getElementById('war-selector');
 
-      // Populate the dropdown with available wars
-      wars.forEach(war => {
+      data.wars.forEach(war => {
         const option = document.createElement('option');
         option.value = war.id;
         option.textContent = war.name;
         warSelector.appendChild(option);
       });
 
-      // Listen for when a war is selected from the dropdown
-      warSelector.addEventListener('change', function() {
-        const selectedId = parseInt(this.value);
-        const selectedWar = wars.find(war => war.id === selectedId);
+      warSelector.addEventListener('change', function () {
+        const selectedWar = data.wars.find(war => war.id == this.value);
         if (selectedWar) {
           displayWarDetails(selectedWar);
+          highlightCountries(selectedWar);
         }
       });
     })
     .catch(error => console.error('Error fetching wars.json:', error));
 });
 
+// Display war details
 function displayWarDetails(war) {
-  // Create or clear the container that displays war details
-  let detailsContainer = document.getElementById('war-details');
-  if (!detailsContainer) {
-    detailsContainer = document.createElement('div');
-    detailsContainer.id = 'war-details';
-    // Append the details container below the map graphic
-    document.querySelector('main').appendChild(detailsContainer);
-  } else {
-    detailsContainer.innerHTML = ''; // Clear any existing content
-  }
+  const detailsContainer = document.getElementById('war-details');
+  detailsContainer.innerHTML = `<h2>${war.name}</h2><p>${war.description}</p>`;
 
-  // Display war name and description
-  const warTitle = document.createElement('h2');
-  warTitle.textContent = war.name;
-  detailsContainer.appendChild(warTitle);
-
-  const warDescription = document.createElement('p');
-  warDescription.textContent = war.description;
-  detailsContainer.appendChild(warDescription);
-
-  // Loop through each side (combatant) and display details along with supporters
-  war.sides.forEach(side => {
-    const sideDiv = document.createElement('div');
-    sideDiv.classList.add('side');
-    // Apply a colored border based on the side's primary fighting country
-    sideDiv.style.border = `2px solid ${sideColors[side.name] || '#000'}`;
-    sideDiv.style.margin = '10px 0';
-    sideDiv.style.padding = '10px';
-
-    const sideTitle = document.createElement('h3');
-    sideTitle.textContent = side.name;
-    sideDiv.appendChild(sideTitle);
-
-    const sideDesc = document.createElement('p');
-    sideDesc.textContent = side.description;
-    sideDiv.appendChild(sideDesc);
-
-    // If there are any supporters, list them
-    if (side.supporters && side.supporters.length > 0) {
-      const supportersTitle = document.createElement('h4');
-      supportersTitle.textContent = "Supporters:";
-      sideDiv.appendChild(supportersTitle);
-
-      const supporterList = document.createElement('ul');
-      side.supporters.forEach(supporter => {
-        const li = document.createElement('li');
-        li.textContent = `${supporter.name} (${supporter.type})`;
-        supporterList.appendChild(li);
-      });
-      sideDiv.appendChild(supporterList);
+  ["easternCombatants", "westernCombatants", "easternMilitarySupport", "westernMilitarySupport", "easternPoliticalSupport", "westernPoliticalSupport"].forEach(category => {
+    if (war[category] && war[category].length > 0) {
+      const sideDiv = document.createElement('div');
+      sideDiv.classList.add('side');
+      sideDiv.style.borderLeft = `4px solid ${getCountryColor(war[category][0], war)}`;
+      sideDiv.innerHTML = `<h3>${category.replace(/([A-Z])/g, ' $1')}</h3><p>${war[category].join(", ")}</p>`;
+      detailsContainer.appendChild(sideDiv);
     }
-
-    detailsContainer.appendChild(sideDiv);
   });
 }
+
+// Initialize the map on page load
+initMap();
