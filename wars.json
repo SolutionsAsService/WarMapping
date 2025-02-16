@@ -1,0 +1,152 @@
+{
+  "wars": [
+    {
+      "id": 1,
+      "name": "Russia-Ukraine Conflict",
+      "description": "An ongoing conflict marked by Russia's invasion of Ukraine and significant international support for Ukraine.",
+      "sides": [
+        {
+          "name": "Ukraine",
+          "description": "Defending its sovereignty against external aggression.",
+          "supporters": [
+            {
+              "name": "United States",
+              "type": "Military Aid"
+            },
+            {
+              "name": "European Union",
+              "type": "Political and Economic Support"
+            },
+            {
+              "name": "NATO",
+              "type": "Strategic and Military Support"
+            }
+          ]
+        },
+        {
+          "name": "Russia",
+          "description": "The invading force facing extensive international sanctions.",
+          "supporters": [
+            {
+              "name": "Belarus",
+              "type": "Political Support"
+            },
+            {
+              "name": "Iran",
+              "type": "Military Support"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Syrian Civil War",
+      "description": "A multifaceted conflict involving the Syrian government and a variety of opposition groups.",
+      "sides": [
+        {
+          "name": "Syrian Government",
+          "description": "Led by Bashar al-Assad, maintaining power with the help of key allies.",
+          "supporters": [
+            {
+              "name": "Russia",
+              "type": "Military and Political Support"
+            },
+            {
+              "name": "Iran",
+              "type": "Military Support"
+            },
+            {
+              "name": "Hezbollah",
+              "type": "Militant Support"
+            }
+          ]
+        },
+        {
+          "name": "Rebel Groups",
+          "description": "A collection of factions seeking the overthrow of the current government.",
+          "supporters": [
+            {
+              "name": "Turkey",
+              "type": "Military and Political Support"
+            },
+            {
+              "name": "Gulf States",
+              "type": "Financial and Military Aid"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Yemen Conflict",
+      "description": "A civil war between the internationally recognized government and Houthi rebels.",
+      "sides": [
+        {
+          "name": "Hadi Government",
+          "description": "The internationally recognized authority supported by a Saudi-led coalition.",
+          "supporters": [
+            {
+              "name": "Saudi Arabia",
+              "type": "Military Support"
+            },
+            {
+              "name": "United Arab Emirates",
+              "type": "Military Support"
+            },
+            {
+              "name": "United States",
+              "type": "Intelligence and Logistical Support"
+            }
+          ]
+        },
+        {
+          "name": "Houthi Rebels",
+          "description": "A rebel movement that has taken control of significant portions of the country.",
+          "supporters": [
+            {
+              "name": "Iran",
+              "type": "Political and Military Support"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Libyan Civil Conflict",
+      "description": "A power struggle between rival factions vying for control in Libya.",
+      "sides": [
+        {
+          "name": "Government of National Unity (GNU)",
+          "description": "Recognized by the United Nations and supported by several international actors.",
+          "supporters": [
+            {
+              "name": "Turkey",
+              "type": "Military Support"
+            },
+            {
+              "name": "European Union",
+              "type": "Political and Economic Support"
+            }
+          ]
+        },
+        {
+          "name": "Libyan National Army (LNA)",
+          "description": "Opposition forces led by Khalifa Haftar aiming to consolidate power.",
+          "supporters": [
+            {
+              "name": "Egypt",
+              "type": "Military Support"
+            },
+            {
+              "name": "United Arab Emirates",
+              "type": "Military and Financial Support"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
