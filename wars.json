@@ -3,150 +3,57 @@
     {
       "id": 1,
       "name": "Russia-Ukraine Conflict",
-      "description": "An ongoing conflict marked by Russia's invasion of Ukraine and significant international support for Ukraine.",
-      "sides": [
-        {
-          "name": "Ukraine",
-          "description": "Defending its sovereignty against external aggression.",
-          "supporters": [
-            {
-              "name": "United States",
-              "type": "Military Aid"
-            },
-            {
-              "name": "European Union",
-              "type": "Political and Economic Support"
-            },
-            {
-              "name": "NATO",
-              "type": "Strategic and Military Support"
-            }
-          ]
-        },
-        {
-          "name": "Russia",
-          "description": "The invading force facing extensive international sanctions.",
-          "supporters": [
-            {
-              "name": "Belarus",
-              "type": "Political Support"
-            },
-            {
-              "name": "Iran",
-              "type": "Military Support"
-            }
-          ]
-        }
-      ]
+      "description": "An ongoing conflict initiated by Russia's invasion of Ukraine, with significant international support for Ukraine.",
+      "easternCombatants": ["Russia"],
+      "westernCombatants": ["Ukraine"],
+      "easternMilitarySupport": ["Belarus", "Iran"],
+      "westernMilitarySupport": ["United States", "United Kingdom", "Poland", "NATO"],
+      "easternPoliticalSupport": ["China", "North Korea"],
+      "westernPoliticalSupport": ["European Union", "Germany", "France", "Canada"]
     },
     {
       "id": 2,
       "name": "Syrian Civil War",
-      "description": "A multifaceted conflict involving the Syrian government and a variety of opposition groups.",
-      "sides": [
-        {
-          "name": "Syrian Government",
-          "description": "Led by Bashar al-Assad, maintaining power with the help of key allies.",
-          "supporters": [
-            {
-              "name": "Russia",
-              "type": "Military and Political Support"
-            },
-            {
-              "name": "Iran",
-              "type": "Military Support"
-            },
-            {
-              "name": "Hezbollah",
-              "type": "Militant Support"
-            }
-          ]
-        },
-        {
-          "name": "Rebel Groups",
-          "description": "A collection of factions seeking the overthrow of the current government.",
-          "supporters": [
-            {
-              "name": "Turkey",
-              "type": "Military and Political Support"
-            },
-            {
-              "name": "Gulf States",
-              "type": "Financial and Military Aid"
-            }
-          ]
-        }
-      ]
+      "description": "A prolonged conflict involving the Syrian government and various opposition groups.",
+      "easternCombatants": ["Syrian Government"],
+      "westernCombatants": ["Opposition Groups"],
+      "easternMilitarySupport": ["Russia", "Iran", "Hezbollah"],
+      "westernMilitarySupport": ["Turkey", "Gulf States"],
+      "easternPoliticalSupport": ["China"],
+      "westernPoliticalSupport": ["United States", "European Union"]
     },
     {
       "id": 3,
       "name": "Yemen Conflict",
       "description": "A civil war between the internationally recognized government and Houthi rebels.",
-      "sides": [
-        {
-          "name": "Hadi Government",
-          "description": "The internationally recognized authority supported by a Saudi-led coalition.",
-          "supporters": [
-            {
-              "name": "Saudi Arabia",
-              "type": "Military Support"
-            },
-            {
-              "name": "United Arab Emirates",
-              "type": "Military Support"
-            },
-            {
-              "name": "United States",
-              "type": "Intelligence and Logistical Support"
-            }
-          ]
-        },
-        {
-          "name": "Houthi Rebels",
-          "description": "A rebel movement that has taken control of significant portions of the country.",
-          "supporters": [
-            {
-              "name": "Iran",
-              "type": "Political and Military Support"
-            }
-          ]
-        }
-      ]
+      "easternCombatants": ["Houthi Rebels"],
+      "westernCombatants": ["Hadi Government"],
+      "easternMilitarySupport": ["Iran"],
+      "westernMilitarySupport": ["Saudi Arabia", "United Arab Emirates", "United States"],
+      "easternPoliticalSupport": ["Russia"],
+      "westernPoliticalSupport": ["United Nations", "European Union"]
     },
     {
       "id": 4,
-      "name": "Libyan Civil Conflict",
-      "description": "A power struggle between rival factions vying for control in Libya.",
-      "sides": [
-        {
-          "name": "Government of National Unity (GNU)",
-          "description": "Recognized by the United Nations and supported by several international actors.",
-          "supporters": [
-            {
-              "name": "Turkey",
-              "type": "Military Support"
-            },
-            {
-              "name": "European Union",
-              "type": "Political and Economic Support"
-            }
-          ]
-        },
-        {
-          "name": "Libyan National Army (LNA)",
-          "description": "Opposition forces led by Khalifa Haftar aiming to consolidate power.",
-          "supporters": [
-            {
-              "name": "Egypt",
-              "type": "Military Support"
-            },
-            {
-              "name": "United Arab Emirates",
-              "type": "Military and Financial Support"
-            }
-          ]
-        }
-      ]
+      "name": "Ethiopian Civil Conflict",
+      "description": "A complex conflict involving the federal government and various regional factions.",
+      "easternCombatants": ["Tigray People's Liberation Front (TPLF)"],
+      "westernCombatants": ["Ethiopian Federal Government"],
+      "easternMilitarySupport": ["Oromo Liberation Army"],
+      "westernMilitarySupport": ["Eritrea"],
+      "easternPoliticalSupport": ["Sudan"],
+      "westernPoliticalSupport": ["African Union"]
+    },
+    {
+      "id": 5,
+      "name": "Sudan Internal Conflict",
+      "description": "Ongoing violence involving government forces and various armed groups.",
+      "easternCombatants": ["Rebel Factions"],
+      "westernCombatants": ["Sudanese Government"],
+      "easternMilitarySupport": ["South Sudan"],
+      "westernMilitarySupport": ["Russia"],
+      "easternPoliticalSupport": ["Chad"],
+      "westernPoliticalSupport": ["China"]
     }
   ]
 }
