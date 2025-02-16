@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Current Wars Map</title>
+  <!-- Link to the external CSS file for themes and styling -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Current Wars Map</h1>
+    <div class="dropdown-container">
+      <!-- Dropdown to select different wars -->
+      <select id="war-selector">
+        <option value="" disabled selected>Select a war</option>
+        <!-- Options will be populated dynamically from a JSON file (e.g., wars.json) via script.js -->
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <!-- Container for the map graphic -->
+    <div id="map-container">
+      <!-- Canvas element used as a placeholder for an interactive map graphic -->
+      <canvas id="map-canvas" width="800" height="600"></canvas>
+    </div>
+  </main>
+
+  <!-- Link to the external JS file for handling interactivity and loading JSON data -->
+  <script src="script.js"></script>
+</body>
+</html>
